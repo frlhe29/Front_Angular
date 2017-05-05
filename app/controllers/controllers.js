@@ -1,9 +1,16 @@
-var BillChecker = function($scope, billData) {
-    $scope.data = billData.billOne;
-    $scope.checkBill = function(){
-        alert("Im here");
-      //  $scope.data.status = !$scope.data.status;
-    };
+var MyFirstController = function($scope, $http, userData) {
+  $scope.ManyHellos = ['Hello', 'Hola', 'Bonjour', 'Guten Tag', 'Ciao', 'Namaste', 'Yiasou'];
+
+  $scope.data = userData.billOne;
+
+
+  $scope.validateBill = function () {
+      $scope.data.status = !$scope.data.status;
+  };
+
+  var onError = function(reason) {
+    $scope.error = "Ooops, something went wrong..";
+  };
 };
 
-app.controller("BillChecker",BillChecker);
+app.controller("MyFirstController", MyFirstController);

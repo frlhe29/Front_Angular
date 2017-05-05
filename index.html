@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myfirstangularapp">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS - Sebastian Brukalo</title>
+    <link data-require="bootstrap@*" data-semver="3.3.2" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script data-require="bootstrap@*" data-semver="3.3.2" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div class="container">
+    <div ng-controller="BillChecker">
+        <p class="text-muted">
+            1. Editeur de la facture:</p>
+        <p class="text-info">{{data.entityName | lowercase}}</p>
+        <hr />
+
+        <p class="text-muted">
+            2. Client</p>
+        <p class="text-info">{{data.clientName | lowercase }}</p>
+        <hr />
+
+        <p class="text-muted">
+            3. Elements Facturable</p>
+        <li ng-repeat="element in data.products">{{element.name}} - {{element.price}}</a></li>
+        </ul>
+        <hr />
+
+        <p class="text-muted">
+            3. Facture validé</p>
+        <p class="text-info">{{data.status | lowercase }}</p>
+        <hr />
+    </div>
+    <p></p>
+    <hr />
+    <div>
+        <validate-bill callback="BillChecker.checkBill"></validate-bill>
+    </div>
+</div>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+
+<script src="app/app.js"></script>
+<script src="app/controllers/controllers.js"></script>
+<script src="app/filters/filters.js"></script>
+<script src="app/services/services.js"></script>
+<script src="app/directives/directives.js"></script>
+</body>
+
+</html>
